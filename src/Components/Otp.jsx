@@ -9,17 +9,24 @@ export default function Otp(){
         <span className='text-2xl'>Check Your Email For A Code</span>
         <span className='text-white/70 text-[14px] text-extralight'>Please enter the code sent to your email id.</span>
         <div className="flex flex-row gap-2 text-white">
-            <input type='text' placeholder="Your birth year" className='h-10 mx-auto p-4 -mt-10 text-white/70 w-5 outline-none bg-slate-800 border border-gray-700 rounded-xl'></input>
-            <input type='text' placeholder="Your birth year" className='h-10 mx-auto p-4 -mt-10 text-white/70 w-5 outline-none bg-slate-800 border border-gray-700 rounded-xl'></input>
-            <input type='text' placeholder="Your birth year" className='h-10 mx-auto p-4 -mt-10 text-white/70 w-5 outline-none bg-slate-800 border border-gray-700 rounded-xl'></input>
-            <input type='text' placeholder="Your birth year" className='h-10 mx-auto p-4 -mt-10 text-white/70 w-5 outline-none bg-slate-800 border border-gray-700 rounded-xl'></input>
-            <input type='text' placeholder="Your birth year" className='h-10 mx-auto p-4 -mt-10 text-white/70 w-5 outline-none bg-slate-800 border border-gray-700 rounded-xl'></input>
-            <input type='text' placeholder="Your birth year" className='h-10 mx-auto p-4 -mt-10 text-white/70 w-5 outline-none bg-slate-800 border border-gray-700 rounded-xl'></input>
+            <SubOtpBox></SubOtpBox>
+            <SubOtpBox></SubOtpBox>
+            <SubOtpBox></SubOtpBox>
+            <SubOtpBox></SubOtpBox>
+            <SubOtpBox></SubOtpBox>
+            <SubOtpBox></SubOtpBox>
+            
         </div>
         
         <button className='flex items-center justify-center h-10 mx-auto p-4 -mt-4 w-60 bg-slate-800 border border-gray-700 rounded-xl hover:bg-slate-600 transition transiton-1000 cursor-pointer'>Verify</button>
-        <span className='text-white/70 text-[14px] text-extralight'>Can't find the email click here to resend.</span>
+        <span className='text-white/70 text-[12px] text-extralight'>Can't find the email click here to resend.</span>
       </div>
     </section>
     )
+}
+
+function SubOtpBox(){
+    return<div>
+        <input type='text' placeholder="Your birth year" className='h-10 mx-auto p-4 -mt-10 text-white/70 w-5 outline-none bg-slate-800 border border-gray-700 rounded-xl'></input>
+    </div>
 }
