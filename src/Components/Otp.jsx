@@ -27,6 +27,8 @@ export default function Otp(){
 
 function SubOtpBox(){
     return<div>
-        <input type='text' placeholder="Your birth year" className='h-10 mx-auto p-4 -mt-10 text-white/70 w-5 outline-none bg-slate-800 border border-gray-700 rounded-xl'></input>
+        <input type='text' 
+        inputMode="numeric"
+  maxLength='1'  className='h-10 -mt-10 text-center text-white/70 w-10 outline-none bg-slate-800 border border-gray-700 rounded-xl'></input>
     </div>
 }
