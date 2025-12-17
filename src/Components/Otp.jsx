@@ -28,7 +28,9 @@ export default function Otp(){
 function SubOtpBox(){
     return<div>
         <input type='text' 
-        inputMode="numeric"
-  maxLength='1'  className='h-10 -mt-10 text-center text-white/70 w-10 outline-none bg-slate-800 border border-gray-700 rounded-xl'></input>
+        inputMode='numeric'
+        maxLength='1'  
+        onChange={(e)=> e.target.value= e.target.value.replace(/[^0-9]/g,'')}
+        className='h-10 -mt-10 text-center text-white/70 w-10 outline-none bg-slate-800 border border-gray-700 rounded-xl'></input>
     </div>
 }
