@@ -1,4 +1,4 @@
-export default function Otp({number}){
+export default function Age(){
     return(
             <section className="min-h-screen bg-slate-950 text-white overflow-hidden ">
       <div className='flex flex-col mx-auto gap-15 items-center justify-center h-200'>
@@ -6,26 +6,11 @@ export default function Otp({number}){
           <svg width="34px" height="34px" viewBox="0 0 24 24" stroke-width="1.3" fill="none" xmlns="http://www.w3.org/2000/svg" color="#32302a"><path d="M12 23C12.5523 23 13 22.5523 13 22C13 21.4477 12.5523 21 12 21C11.4477 21 11 21.4477 11 22C11 22.5523 11.4477 23 12 23Z" fill="#32302a" stroke="#FFFFFF" stroke-width="1.3" stroke-linecap="round" stroke-linejoin="round"></path><path d="M3 8C3.55228 8 4 7.55228 4 7C4 6.44772 3.55228 6 3 6C2.44772 6 2 6.44772 2 7C2 7.55228 2.44772 8 3 8Z" fill="#FFFFFF" stroke="#FFFFFF" stroke-width="1.3" stroke-linecap="round" stroke-linejoin="round"></path><path d="M3 18C3.55228 18 4 17.5523 4 17C4 16.4477 3.55228 16 3 16C2.44772 16 2 16.4477 2 17C2 17.5523 2.44772 18 3 18Z" fill="#FFFFFF" stroke="#FFFFFF" stroke-width="1.3" stroke-linecap="round" stroke-linejoin="round"></path><path d="M21 7.35304L21 16.647C21 16.8649 20.8819 17.0656 20.6914 17.1715L12.2914 21.8381C12.1102 21.9388 11.8898 21.9388 11.7086 21.8381L3.30861 17.1715C3.11814 17.0656 3 16.8649 3 16.647L2.99998 7.35304C2.99998 7.13514 3.11812 6.93437 3.3086 6.82855L11.7086 2.16188C11.8898 2.06121 12.1102 2.06121 12.2914 2.16188L20.6914 6.82855C20.8818 6.93437 21 7.13514 21 7.35304Z" stroke="#FFFFFF" stroke-width="1.3" stroke-linecap="round" stroke-linejoin="round"></path><path d="M3.52844 7.29363L11.7086 11.8382C11.8898 11.9388 12.1102 11.9388 12.2914 11.8382L20.5 7.27783" stroke="#FFFFFF" stroke-width="1.3" stroke-linecap="round" stroke-linejoin="round"></path><path d="M12 21L12 12" stroke="#FFFFFF" stroke-width="1.3" stroke-linecap="round" stroke-linejoin="round"></path></svg>
           <span className='text-3xl text-blue-200'>Webinar.gg</span>
         </div>
-        <span className='text-2xl'>Check Your Email For A Code</span>
-        <span className='text-white/70 text-[14px] text-extralight'>Please enter the code sent to your email id.</span>
-        <div className="flex flex-row gap-2 text-white">
-            
-            
-        </div>
-        
-        <button className='flex items-center justify-center h-10 mx-auto p-4 -mt-4 w-60 bg-slate-800 border border-gray-700 rounded-xl hover:bg-slate-600 transition transiton-1000 cursor-pointer'>Verify</button>
-        <span className='text-white/70 text-[12px] text-extralight'>Can't find the email click here to resend.</span>
+        <span className='text-2xl'>Verify Your Age</span>
+        <span className='text-white/70 text-[14px] text-extralight'>Please confirm your birth year. This data will not be stored.</span>
+        <input type='date' placeholder="Your birth year" className='h-10 mx-auto p-4 -mt-10 text-white/70 w-60 bg-slate-800 border border-gray-700 rounded-3xl'></input>
+        <button className='flex items-center justify-center h-10 mx-auto p-4 -mt-4 w-60 bg-slate-800 border border-gray-700 rounded-xl hover:bg-slate-600 transition transiton-1000 cursor-pointer'>Continue</button>
       </div>
     </section>
     )
-}
-
-function SubOtpBox(){
-    return<div>
-        <input type='text' 
-        inputMode='numeric'
-        maxLength='1'  
-        onChange={(e)=> e.target.value= e.target.value.replace(/[^0-9]/g,'')}
-        className='h-10 -mt-10 text-center text-white/70 w-10 outline-none bg-slate-800 border border-gray-700 rounded-xl'></input>
-    </div>
 }
