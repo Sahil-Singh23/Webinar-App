@@ -10,7 +10,7 @@ function App() {
   return (
     <>
     <Age></Age>
-    <Otp number={10}></Otp>
+    <Otp number={6}></Otp>
 </>
   );
 }

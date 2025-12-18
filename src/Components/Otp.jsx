@@ -9,8 +9,7 @@ export default function Otp({number}){
         <span className='text-2xl'>Check Your Email For A Code</span>
         <span className='text-white/70 text-[14px] text-extralight'>Please enter the code sent to your email id.</span>
         <div className="flex flex-row gap-2 text-white">
-            
-            
+            {Array(number).fill().map((x,index) => <SubOtpBox key={index}></SubOtpBox>)}
         </div>
         
         <button className='flex items-center justify-center h-10 mx-auto p-4 -mt-4 w-60 bg-slate-800 border border-gray-700 rounded-xl hover:bg-slate-600 transition transiton-1000 cursor-pointer'>Verify</button>
