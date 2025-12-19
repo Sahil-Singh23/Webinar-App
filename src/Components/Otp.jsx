@@ -14,17 +14,26 @@ export default function Otp({number}){
         <span className='text-2xl'>Check Your Email For A Code</span>
         <span className='text-white/70 text-[14px] text-extralight'>Please enter the code sent to your email id.</span>
         <div className="flex flex-row gap-2 text-white">
-            {Array(number).fill().map((x,index)=><SubOtpBox key={index} index={index} refer={(e)=>refs.current[index]=e} val ={val} setVal={setVal}></SubOtpBox>)}
+            {Array(number).fill().map((x,index)=><SubOtpBox key={index} index={index} refer={(e)=>refs.current[index]=e} val ={val} setVal={setVal} goNext={()=>refs.current[index+1].focus()} number={number} goBack={()=>refs.current[index-1].focus()}></SubOtpBox>)}
         </div>
         
-        <button className='flex items-center justify-center h-10 mx-auto p-4 -mt-4 w-60 bg-slate-800 border border-gray-700 rounded-xl hover:bg-slate-600 transition transiton-1000 cursor-pointer'>Verify</button>
+        <button 
+            disabled={val.some(v=>v==='')} 
+            className={`flex items-center justify-center h-10 mx-auto p-4 -mt-4 w-60 rounded-xl transition ${
+              val.some(v=>v==='') 
+                ? 'bg-slate-900 border border-gray-800 text-gray-500 cursor-not-allowed opacity-50' 
+                : 'bg-slate-800 border border-gray-700 hover:bg-slate-600 cursor-pointer'
+            }`}
+          >
+            Verify
+          </button>
         <span className='text-white/70 text-[12px] text-extralight'>Can't find the email click here to resend.</span>
       </div>
     </section>
     )
 }
 
-function SubOtpBox({index,refer,val,setVal}){
+function SubOtpBox({index,refer,val,setVal,goNext,number,goBack}){
     return<div>
         <input type="text" inputMode="numeric" ref={refer} maxLength='1' value={val[index]} onChange={(e)=> {
             const sanitized = e.target.value.replace(/[^0-9]/g,'')
@@ -32,7 +41,22 @@ function SubOtpBox({index,refer,val,setVal}){
               const newVal = [...val];
               newVal[index]=sanitized
               setVal(newVal);
+              if(index<number-1) goNext();
             }
-          }}className="h-10 -mt-10 text-center text-white/70 w-9 outline-none bg-slate-800 border border-gray-700 rounded-xl"></input>
+          }}
+          onKeyDown={(e)=>{
+            if(e.key=='Backspace'){
+              console.log('reached here')
+              if(val[index]!=''){
+                setVal((prev)=>{
+                  const newVal = [...prev];
+                  newVal[index]='';
+                  return newVal;
+                })
+              }else{
+                if(index>0) goBack();
+              }
+            }}}
+          className="h-10 -mt-10 text-center text-white/70 w-9 outline-none bg-slate-800 border border-gray-700 rounded-xl"></input>
     </div>
 }
