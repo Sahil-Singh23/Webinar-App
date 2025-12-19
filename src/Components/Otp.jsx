@@ -46,7 +46,7 @@ function SubOtpBox({index,refer,val,setVal,goNext,number,goBack}){
           }}
           onKeyDown={(e)=>{
             if(e.key=='Backspace'){
-              console.log('reached here')
+              e.preventDefault();
               if(val[index]!=''){
                 setVal((prev)=>{
                   const newVal = [...prev];
