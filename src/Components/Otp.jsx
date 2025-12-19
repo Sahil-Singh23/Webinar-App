@@ -3,7 +3,7 @@ import { useRef, useState } from "react"
 export default function Otp({number}){
 
     const refs = useRef([]);
-    const [val,setVal] = useState([]);
+    const [val,setVal] = useState(Array(number).fill(''));
     return(
       <section className="min-h-screen bg-slate-950 text-white overflow-hidden ">
       <div className='flex flex-col mx-auto gap-15 items-center justify-center h-200'>
@@ -14,7 +14,7 @@ export default function Otp({number}){
         <span className='text-2xl'>Check Your Email For A Code</span>
         <span className='text-white/70 text-[14px] text-extralight'>Please enter the code sent to your email id.</span>
         <div className="flex flex-row gap-2 text-white">
-            {Array(number).fill().map((x,index)=><SubOtpBox key={index} refer={refs.current[index]} val ={val[index]}></SubOtpBox>)}
+            {Array(number).fill().map((x,index)=><SubOtpBox key={index} index={index} refer={refs.current[index]} val ={val[index]} setVal={setVal}></SubOtpBox>)}
         </div>
         
         <button className='flex items-center justify-center h-10 mx-auto p-4 -mt-4 w-60 bg-slate-800 border border-gray-700 rounded-xl hover:bg-slate-600 transition transiton-1000 cursor-pointer'>Verify</button>
@@ -24,8 +24,13 @@ export default function Otp({number}){
     )
 }
 
-function SubOtpBox({key,refer,val}){
+function SubOtpBox({index,refer,val,setVal}){
     return<div>
-        <input type="text" inputMode="numeric" maxLength='1' value={val}onChange={(e)=> e.target.value = e.target.value.replace(/[^0-9]/g,'')} className="h-10 -mt-10 text-center text-white/70 w-9 outline-none bg-slate-800 border border-gray-700 rounded-xl"></input>
+        <input type="text" inputMode="numeric" maxLength='1' value={val[index]}onChange={(e)=> {
+            const sanitized = e.target.value.replace(/[^0-9]/g,'')
+            const newVal = [...val];
+            newVal[index]=sanitized
+            setVal(newVal);
+          }}className="h-10 -mt-10 text-center text-white/70 w-9 outline-none bg-slate-800 border border-gray-700 rounded-xl"></input>
     </div>
 }
