@@ -4,6 +4,15 @@ export default function Otp({number}){
 
     const refs = useRef([]);
     const [val,setVal] = useState(Array(number).fill(''));
+    const handlePaste = (e)=>{
+      e.preventDefault();
+      const pasted = e.clipboardData.getData('text').replace(/[^0-9]/g,'');
+      if(pasted.length === number){
+        const newVal = pasted.split('');
+        setVal(newVal);
+        refs.current[number-1].focus();
+      }
+    }
     return(
       <section className="min-h-screen bg-slate-950 text-white overflow-hidden ">
       <div className='flex flex-col mx-auto gap-15 items-center justify-center h-200'>
@@ -14,7 +23,7 @@ export default function Otp({number}){
         <span className='text-2xl'>Check Your Email For A Code</span>
         <span className='text-white/70 text-[14px] text-extralight'>Please enter the code sent to your email id.</span>
         <div className="flex flex-row gap-2 text-white">
-            {Array(number).fill().map((x,index)=><SubOtpBox key={index} index={index} refer={(e)=>refs.current[index]=e} val ={val} setVal={setVal} goNext={()=>refs.current[index+1].focus()} number={number} goBack={()=>refs.current[index-1].focus()}></SubOtpBox>)}
+            {Array(number).fill().map((x,index)=><SubOtpBox key={index} index={index} refer={(e)=>refs.current[index]=e} val ={val} setVal={setVal} goNext={()=>refs.current[index+1].focus()} number={number} goBack={()=>refs.current[index-1].focus()} onPaste ={handlePaste}></SubOtpBox>)}
         </div>
         
         <button 
@@ -33,7 +42,7 @@ export default function Otp({number}){
     )
 }
 
-function SubOtpBox({index,refer,val,setVal,goNext,number,goBack}){
+function SubOtpBox({index,refer,val,setVal,goNext,number,goBack,onPaste}){
     return<div>
         <input type="text" inputMode="numeric" ref={refer} maxLength='1' value={val[index]} onChange={(e)=> {
             const sanitized = e.target.value.replace(/[^0-9]/g,'')
@@ -57,6 +66,7 @@ function SubOtpBox({index,refer,val,setVal,goNext,number,goBack}){
                 if(index>0) goBack();
               }
             }}}
+            onPaste={onPaste}
           className="h-10 -mt-10 text-center text-white/70 w-9 outline-none bg-slate-800 border border-gray-700 rounded-xl"></input>
     </div>
 }
