@@ -10,8 +10,8 @@ function App() {
 
   return (
     <>
-    <Age></Age>
-    <Otp number={6}></Otp>
+    {/* <Age></Age>
+    <Otp number={6}></Otp> */}
     <Profile></Profile>
 </>
   );
