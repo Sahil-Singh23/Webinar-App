@@ -65,7 +65,14 @@ function SubOtpBox({index,refer,val,setVal,goNext,number,goBack,onPaste}){
               }else{
                 if(index>0) goBack();
               }
-            }}}
+            }else if(e.key==='ArrowRight' && index < number-1){
+              e.preventDefault();
+              goNext();
+            } else if(e.key==='ArrowLeft' && index > 0){
+              e.preventDefault();
+              goBack();
+            }
+          }}
             onPaste={onPaste}
           className="h-10 -mt-10 text-center text-white/70 w-9 outline-none bg-slate-800 border border-gray-700 rounded-xl"></input>
     </div>
