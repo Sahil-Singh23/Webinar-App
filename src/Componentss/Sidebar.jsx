@@ -12,20 +12,20 @@ const Sidebar = () => {
   ]
 
   return (
-    <section className='min-h-screen w-1/5 bg-gradient-to-b from-slate-900 via-slate-800 to-slate-900 hidden md:flex flex-col border-r border-slate-700 shadow-2xl'>
+    <section className='min-h-screen w-1/5 bg-gradient-to-b from-blue-50 via-blue-100 to-blue-50 hidden md:flex flex-col border-r border-blue-200 shadow-lg'>
       {/* Header/Profile Section */}
-      <div className='p-6 border-b border-slate-700'>
+      <div className='p-6 border-b border-blue-200'>
         <div className='flex items-center justify-between'>
           <div className='flex items-center gap-3'>
-            <div className='w-10 h-10 rounded-full bg-gradient-to-br from-blue-400 to-cyan-500 flex items-center justify-center'>
+            <div className='w-10 h-10 rounded-full bg-gradient-to-br from-blue-300 to-blue-400 flex items-center justify-center'>
               <span className='text-white font-bold text-sm'>S</span>
             </div>
             <div>
-              <p className='text-white font-semibold text-sm'>Sahil</p>
-              <p className='text-slate-400 text-xs'>Admin</p>
+              <p className='text-blue-900 font-semibold text-sm'>Sahil</p>
+              <p className='text-blue-600 text-xs'>Admin</p>
             </div>
           </div>
-          <button className='text-slate-400 hover:text-white transition-colors p-1 hover:bg-slate-700 rounded-lg'>
+          <button className='text-blue-600 hover:text-blue-900 transition-colors p-1 hover:bg-blue-200 rounded-lg'>
             <svg width="20px" height="20px" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
               <path d="M19 6.41L17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12 19 6.41Z" fill="currentColor"/>
             </svg>
@@ -42,8 +42,8 @@ const Sidebar = () => {
             onClick={() => setActiveLink(item.id)}
             className={`flex items-center gap-4 px-4 py-3 rounded-lg transition-all duration-200 group ${
               activeLink === item.id
-                ? 'bg-gradient-to-r from-blue-500 to-cyan-500 text-white shadow-lg'
-                : 'text-slate-300 hover:bg-slate-700/50 hover:text-white'
+                ? 'bg-blue-300 text-blue-900 shadow-md'
+                : 'text-blue-700 hover:bg-blue-200/60 hover:text-blue-900'
             }`}
           >
             <svg width="22px" height="22px" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg" className={`transition-transform duration-200 ${activeLink === item.id ? 'scale-110' : 'group-hover:scale-110'}`}>
@@ -58,15 +58,15 @@ const Sidebar = () => {
       </nav>
 
       {/* Bottom Section */}
-      <div className='p-4 border-t border-slate-700 space-y-3'>
-        <button className='w-full flex items-center gap-3 px-4 py-2.5 rounded-lg text-slate-300 hover:bg-slate-700/50 hover:text-white transition-all duration-200 text-sm font-medium'>
+      <div className='p-4 border-t border-blue-200 space-y-3'>
+        <button className='w-full flex items-center gap-3 px-4 py-2.5 rounded-lg text-blue-700 hover:bg-blue-200/70 hover:text-blue-900 transition-all duration-200 text-sm font-medium'>
           <svg width="20px" height="20px" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
             <path d="M9 12a3 3 0 100-6 3 3 0 000 6z" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" fill="none"/>
             <path d="M9 12c2.21 0 4 1.79 4 4v2H5v-2c0-2.21 1.79-4 4-4z" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" fill="none"/>
           </svg>
           <span>Profile</span>
         </button>
-        <button className='w-full flex items-center gap-3 px-4 py-2.5 rounded-lg text-slate-300 hover:bg-red-500/10 hover:text-red-400 transition-all duration-200 text-sm font-medium'>
+        <button className='w-full flex items-center gap-3 px-4 py-2.5 rounded-lg text-blue-700 hover:bg-blue-300/30 hover:text-blue-900 transition-all duration-200 text-sm font-medium'>
           <svg width="20px" height="20px" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
             <path d="M17 16l4-4m0 0l-4-4m4 4H7m6 4v1a3 3 0 01-3 3H6a3 3 0 01-3-3V7a3 3 0 013-3h4a3 3 0 013 3v1" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"/>
           </svg>
