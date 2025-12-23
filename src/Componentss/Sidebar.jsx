@@ -1,34 +1,78 @@
-import React from 'react'
+import React, { useState } from 'react'
 
 const Sidebar = () => {
+  const [activeLink, setActiveLink] = useState('home')
+
+  const menuItems = [
+    { id: 'home', label: 'Home', icon: 'M3 12a9 9 0 1118 0 9 9 0 01-18 0z' },
+    { id: 'webinars', label: 'Webinars', icon: 'M12 8c-1.657 0-3 .895-3 2s1.343 2 3 2 3 .895 3 2-1.343 2-3 2zm0-8C5.373 2 1 5.373 1 10s4.373 8 11 8 11-3.373 11-8-4.373-8-11-8z' },
+    { id: 'billing', label: 'Billing', icon: 'M3 6a3 3 0 013-3h12a3 3 0 013 3v12a3 3 0 01-3 3H6a3 3 0 01-3-3V6z' },
+    { id: 'users', label: 'User Management', icon: 'M17 20h5v-2a3 3 0 00-5.856-1.487M7 20H2v-2a3 3 0 015.856-1.487M15 9a3 3 0 11-6 0 3 3 0 016 0z' },
+    { id: 'settings', label: 'Settings', icon: 'M10.325 4.317c.426-1.756 2.924-1.756 3.35 0a1.724 1.724 0 002.573 1.066c1.543-.94 3.31.026 2.37 1.567a1.724 1.724 0 00.566 2.572c1.756.426 1.756 2.924 0 3.35a1.724 1.724 0 00-1.066 2.573c.94 1.543-.026 3.31-1.567 2.37a1.724 1.724 0 00-2.572.566c-.426 1.756-2.924 1.756-3.35 0a1.724 1.724 0 00-2.573-1.066c-1.543.94-3.31-.026-2.37-1.567a1.724 1.724 0 00-.566-2.572c-1.756-.426-1.756-2.924 0-3.35a1.724 1.724 0 001.066-2.573c-.94-1.543.026-3.31 1.567-2.37a1.724 1.724 0 002.572-.566z' },
+  ]
+
   return (
-    <section className='min-h-screen w-1/5 flex-col bg-slate-300 hidden md:block transition-1000'>
-        <div className='flex flex-col gap-8 p-6 font-sans text-xl'>
-            <div className='flex flex-row justify-between'><span>Sahil</span>
-            <svg width="28px" height="28px" stroke-width="1.3" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg" color="#32302a"><path d="M12 2C6.47715 2 2 6.47715 2 12C2 17.5228 6.47715 22 12 22C17.5228 22 22 17.5228 22 12C22 6.47715 17.5228 2 12 2Z" stroke="#32302a" stroke-width="1.3" stroke-linecap="round" stroke-linejoin="round"></path><path d="M4.271 18.3457C4.271 18.3457 6.50002 15.5 12 15.5C17.5 15.5 19.7291 18.3457 19.7291 18.3457" stroke="#32302a" stroke-width="1.3" stroke-linecap="round" stroke-linejoin="round"></path><path d="M12 12C13.6569 12 15 10.6569 15 9C15 7.34315 13.6569 6 12 6C10.3431 6 9 7.34315 9 9C9 10.6569 10.3431 12 12 12Z" stroke="#32302a" stroke-width="1.3" stroke-linecap="round" stroke-linejoin="round"></path></svg>
+    <section className='min-h-screen w-1/5 bg-gradient-to-b from-slate-900 via-slate-800 to-slate-900 hidden md:flex flex-col border-r border-slate-700 shadow-2xl'>
+      {/* Header/Profile Section */}
+      <div className='p-6 border-b border-slate-700'>
+        <div className='flex items-center justify-between'>
+          <div className='flex items-center gap-3'>
+            <div className='w-10 h-10 rounded-full bg-gradient-to-br from-blue-400 to-cyan-500 flex items-center justify-center'>
+              <span className='text-white font-bold text-sm'>S</span>
             </div>
-
-            <div className='flex flex-row justify-between mt-6'><a href='#home'>Home</a>
-                <svg width="28px" height="28px" stroke-width="1.3" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg" color="#32302a"><path d="M9 21H7C4.79086 21 3 19.2091 3 17V10.7076C3 9.30887 3.73061 8.01175 4.92679 7.28679L9.92679 4.25649C11.2011 3.48421 12.7989 3.48421 14.0732 4.25649L19.0732 7.28679C20.2694 8.01175 21 9.30887 21 10.7076V17C21 19.2091 19.2091 21 17 21H15M9 21V17C9 15.3431 10.3431 14 12 14V14C13.6569 14 15 15.3431 15 17V21M9 21H15" stroke="#32302a" stroke-width="1.3" stroke-linecap="round" stroke-linejoin="round"></path></svg>
+            <div>
+              <p className='text-white font-semibold text-sm'>Sahil</p>
+              <p className='text-slate-400 text-xs'>Admin</p>
             </div>
-            <div className='flex flex-row justify-between'><a href='#Webinars'>Webinars</a>
-                <svg width="28px" height="28px" stroke-width="1.3" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg" color="#32302a"><path d="M1 20V19C1 15.134 4.13401 12 8 12V12C11.866 12 15 15.134 15 19V20" stroke="#32302a" stroke-width="1.3" stroke-linecap="round"></path><path d="M13 14V14C13 11.2386 15.2386 9 18 9V9C20.7614 9 23 11.2386 23 14V14.5" stroke="#32302a" stroke-width="1.3" stroke-linecap="round"></path><path d="M8 12C10.2091 12 12 10.2091 12 8C12 5.79086 10.2091 4 8 4C5.79086 4 4 5.79086 4 8C4 10.2091 5.79086 12 8 12Z" stroke="#32302a" stroke-width="1.3" stroke-linecap="round" stroke-linejoin="round"></path><path d="M18 9C19.6569 9 21 7.65685 21 6C21 4.34315 19.6569 3 18 3C16.3431 3 15 4.34315 15 6C15 7.65685 16.3431 9 18 9Z" stroke="#32302a" stroke-width="1.3" stroke-linecap="round" stroke-linejoin="round"></path></svg>
-            </div>
-            <div className='flex flex-row justify-between'><a href='#Bllings'>Bllings</a>
-                <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="size-6">
-  <path stroke-linecap="round" stroke-linejoin="round" d="M2.25 18.75a60.07 60.07 0 0 1 15.797 2.101c.727.198 1.453-.342 1.453-1.096V18.75M3.75 4.5v.75A.75.75 0 0 1 3 6h-.75m0 0v-.375c0-.621.504-1.125 1.125-1.125H20.25M2.25 6v9m18-10.5v.75c0 .414.336.75.75.75h.75m-1.5-1.5h.375c.621 0 1.125.504 1.125 1.125v9.75c0 .621-.504 1.125-1.125 1.125h-.375m1.5-1.5H21a.75.75 0 0 0-.75.75v.75m0 0H3.75m0 0h-.375a1.125 1.125 0 0 1-1.125-1.125V15m1.5 1.5v-.75A.75.75 0 0 0 3 15h-.75M15 10.5a3 3 0 1 1-6 0 3 3 0 0 1 6 0Zm3 0h.008v.008H18V10.5Zm-12 0h.008v.008H6V10.5Z" />
-</svg>
-
-            </div>
-            <div className='flex flex-row justify-between'><a href='#User_mangement'>User Management</a>
-                <svg width="28px" height="28px" stroke-width="1.3" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg" color="#32302a"><path d="M7 18V17C7 14.2386 9.23858 12 12 12V12C14.7614 12 17 14.2386 17 17V18" stroke="#32302a" stroke-width="1.3" stroke-linecap="round"></path><path d="M12 12C13.6569 12 15 10.6569 15 9C15 7.34315 13.6569 6 12 6C10.3431 6 9 7.34315 9 9C9 10.6569 10.3431 12 12 12Z" stroke="#32302a" stroke-width="1.3" stroke-linecap="round" stroke-linejoin="round"></path><path d="M21 3.6V20.4C21 20.7314 20.7314 21 20.4 21H3.6C3.26863 21 3 20.7314 3 20.4V3.6C3 3.26863 3.26863 3 3.6 3H20.4C20.7314 3 21 3.26863 21 3.6Z" stroke="#32302a" stroke-width="1.3" stroke-linecap="round" stroke-linejoin="round"></path></svg>
-            </div>
-            <div className='flex flex-row justify-between'><a href='#Settings'>Settings</a>
-                <svg width="28px" height="28px" stroke-width="1.3" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg" color="#32302a"><path d="M12 15C13.6569 15 15 13.6569 15 12C15 10.3431 13.6569 9 12 9C10.3431 9 9 10.3431 9 12C9 13.6569 10.3431 15 12 15Z" stroke="#32302a" stroke-width="1.3" stroke-linecap="round" stroke-linejoin="round"></path><path d="M19.6224 10.3954L18.5247 7.7448L20 6L18 4L16.2647 5.48295L13.5578 4.36974L12.9353 2H10.981L10.3491 4.40113L7.70441 5.51596L6 4L4 6L5.45337 7.78885L4.3725 10.4463L2 11V13L4.40111 13.6555L5.51575 16.2997L4 18L6 20L7.79116 18.5403L10.397 19.6123L11 22H13L13.6045 19.6132L16.2551 18.5155C16.6969 18.8313 18 20 18 20L20 18L18.5159 16.2494L19.6139 13.598L21.9999 12.9772L22 11L19.6224 10.3954Z" stroke="#32302a" stroke-width="1.3" stroke-linecap="round" stroke-linejoin="round"></path></svg>
-            </div>
-            
-            
+          </div>
+          <button className='text-slate-400 hover:text-white transition-colors p-1 hover:bg-slate-700 rounded-lg'>
+            <svg width="20px" height="20px" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+              <path d="M19 6.41L17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12 19 6.41Z" fill="currentColor"/>
+            </svg>
+          </button>
         </div>
+      </div>
+
+      {/* Navigation Menu */}
+      <nav className='flex-1 px-4 py-6 space-y-2'>
+        {menuItems.map((item) => (
+          <a
+            key={item.id}
+            href={`#${item.id}`}
+            onClick={() => setActiveLink(item.id)}
+            className={`flex items-center gap-4 px-4 py-3 rounded-lg transition-all duration-200 group ${
+              activeLink === item.id
+                ? 'bg-gradient-to-r from-blue-500 to-cyan-500 text-white shadow-lg'
+                : 'text-slate-300 hover:bg-slate-700/50 hover:text-white'
+            }`}
+          >
+            <svg width="22px" height="22px" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg" className={`transition-transform duration-200 ${activeLink === item.id ? 'scale-110' : 'group-hover:scale-110'}`}>
+              <path d={item.icon} stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" fill="none"/>
+            </svg>
+            <span className='font-medium text-sm'>{item.label}</span>
+            {activeLink === item.id && (
+              <div className='ml-auto w-2 h-2 rounded-full bg-white'></div>
+            )}
+          </a>
+        ))}
+      </nav>
+
+      {/* Bottom Section */}
+      <div className='p-4 border-t border-slate-700 space-y-3'>
+        <button className='w-full flex items-center gap-3 px-4 py-2.5 rounded-lg text-slate-300 hover:bg-slate-700/50 hover:text-white transition-all duration-200 text-sm font-medium'>
+          <svg width="20px" height="20px" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <path d="M9 12a3 3 0 100-6 3 3 0 000 6z" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" fill="none"/>
+            <path d="M9 12c2.21 0 4 1.79 4 4v2H5v-2c0-2.21 1.79-4 4-4z" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" fill="none"/>
+          </svg>
+          <span>Profile</span>
+        </button>
+        <button className='w-full flex items-center gap-3 px-4 py-2.5 rounded-lg text-slate-300 hover:bg-red-500/10 hover:text-red-400 transition-all duration-200 text-sm font-medium'>
+          <svg width="20px" height="20px" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <path d="M17 16l4-4m0 0l-4-4m4 4H7m6 4v1a3 3 0 01-3 3H6a3 3 0 01-3-3V7a3 3 0 013-3h4a3 3 0 013 3v1" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"/>
+          </svg>
+          <span>Logout</span>
+        </button>
+      </div>
     </section>
   )
 }
